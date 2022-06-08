@@ -1,0 +1,22 @@
+name: aig microservice CD (tri)
+
+env:
+  # ENV_GRP,  SVC_CODE
+  ENV_GRP: "tri"
+  SVC_CODE: "aig"
+  AUTO_MERGE_BRANCH: "main"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  workflow-start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
