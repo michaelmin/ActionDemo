@@ -20,3 +20,10 @@ jobs:
         uses: actions/checkout@master
         with:
           fetch-depth: 0
+
+      - id: check_branch_names
+        name: Check branch names
+        run: |
+          echo "GITHUB_REF: ${GITHUB_REF}"
+          BRANCH_NAME=$(echo "${GITHUB_REF}" | sed -e "s/^refs\/heads\///g")
+          echo "BRANCH_NAME: ${BRANCH_NAME}"
